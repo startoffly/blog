@@ -1,16 +1,16 @@
 package com.my.blog.website.utils;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.util.Random;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.springframework.util.Base64Utils;
 
 /**
  * 工具类
@@ -57,14 +57,14 @@ public class Tools {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
         byte[] encryptedBytes = cipher.doFinal(data.getBytes());
-        return new BASE64Encoder().encode(encryptedBytes);
+        return Base64Utils.encodeToString(encryptedBytes);
     }
 
     public static String deAes(String data, String key) throws Exception {
         Cipher cipher = Cipher.getInstance("AES");
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
-        byte[] cipherTextBytes = new BASE64Decoder().decodeBuffer(data);
+        byte[] cipherTextBytes = Base64Utils.decodeFromString(data);
         byte[] decValue = cipher.doFinal(cipherTextBytes);
         return new String(decValue);
     }
