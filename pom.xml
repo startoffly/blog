@@ -10,7 +10,7 @@
 
     <packaging>war</packaging>
 
-    <name>my-blog</name>
+    <name>blogWeb</name>
     <description>My Java Blog project for Spring Boot</description>
 
     <parent>
