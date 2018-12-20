@@ -47,7 +47,6 @@ public class CoreApplication extends SpringBootServletInitializer
         return new DataSourceTransactionManager(dataSource());
     }
 
-
     public static void main(String[] args) {
         SpringApplication.run(CoreApplication.class, args);
     }
