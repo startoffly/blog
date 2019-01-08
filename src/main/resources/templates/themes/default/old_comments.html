@@ -1,5 +1,6 @@
 #if(null != article)
 <div id="${article.cid ?! 0}" class="comment-container">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <div id="comments" class="clearfix">
         #if(article.allowComment)
         <span class="response">#if(null!=login_user) Hi，<a href="${login_user.homeUrl}" data-no-instant>${login_user.username}</a>

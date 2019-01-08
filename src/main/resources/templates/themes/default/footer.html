@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <body>
 <footer class="footer bg-white">
     <div class="footer-social">
@@ -15,7 +16,7 @@
                             <th:block th:case="'zhihu'">
                                 <a class="social zhihu" target="blank"
                                    th:href="@{${index.value}}">知乎</a>
-                            </th:block>
+                            </th:block>，
                             <th:block th:case="'github'">
                                 <a class="social github" target="blank"
                                    th:href="@{${index.value}}">Github</a>
